@@ -40,6 +40,18 @@ public class DiscountServiceTest {
     }
 
     @Test
+    public void test平日朝夕5から9回割引() {
+        HighwayDrive drive = new HighwayDrive();
+        drive.setEnteredAt(LocalDateTime.of(2016, 3, 31, 23, 0));
+        drive.setExitedAt(LocalDateTime.of(2016, 4, 1, 6, 30));
+        drive.setDriver(driver(9));
+        drive.setVehicleFamily(STANDARD);
+        drive.setRouteType(RURAL);
+
+        assertThat(discountService.calc(drive)).isEqualTo(30);
+    }
+
+    @Test
     public void test休日朝夕は休日割が適用される() {
         HighwayDrive drive = new HighwayDrive();
         drive.setEnteredAt(LocalDateTime.of(2016, 4, 1, 23, 0));
