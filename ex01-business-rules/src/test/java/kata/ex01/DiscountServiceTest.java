@@ -64,7 +64,7 @@ public class DiscountServiceTest {
     }
 
     @Test
-    public void test休日朝夕は休日割が適用される() {
+    public void test休日は休日割が適用される() {
         HighwayDrive drive = new HighwayDrive();
         drive.setEnteredAt(LocalDateTime.of(2016, 4, 1, 23, 0));
         drive.setExitedAt(LocalDateTime.of(2016, 4, 2, 6, 30));

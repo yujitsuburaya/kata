@@ -23,11 +23,10 @@ public class DiscountServiceImpl implements DiscountService {
         boolean canYuwari = (enteredHour >= 17 || exitedHour <= 20);
         boolean canShinyawari = (enteredHour >= 0 || exitedHour <= 4); // ここ何時だっけ？
 
-        // 微妙……
         ArrayList<Integer> waribikiArray = new ArrayList<Integer>();
         waribikiArray.add(0);
 
-        // 平日朝夕
+        // 平日朝夕割
         if (!isEnteredDateHoriday && !isExitedDateHoriday && (canAsawari || canYuwari)) {
             if (count >= 10) {
                 waribikiArray.add(50);
@@ -36,14 +35,12 @@ public class DiscountServiceImpl implements DiscountService {
             }
         }
 
-        // 休日
+        // 休日割
         if (isEnteredDateHoriday || isExitedDateHoriday) {
-            if (canAsawari || canYuwari) {
-                waribikiArray.add(30);
-            }
+            waribikiArray.add(30);
         }
 
-        // 深夜
+        // 深夜割
         if (canShinyawari) {
             waribikiArray.add(30);
         }
