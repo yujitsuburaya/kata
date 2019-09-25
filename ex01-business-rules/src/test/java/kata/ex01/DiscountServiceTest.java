@@ -28,7 +28,7 @@ public class DiscountServiceTest {
     }
 
     @Test
-    public void test平日朝夕10回以上割引() {
+    public void test平日朝夕で乗車回数が10回以上のときに50パーセント割引される() {
         HighwayDrive drive = new HighwayDrive();
         drive.setEnteredAt(LocalDateTime.of(2016, 3, 31, 23, 0));
         drive.setExitedAt(LocalDateTime.of(2016, 4, 1, 6, 30));
@@ -40,7 +40,7 @@ public class DiscountServiceTest {
     }
 
     @Test
-    public void test平日朝夕5から9回割引() {
+    public void test平日朝夕で乗車回数が5から9回のときに30パーセント割引される() {
         HighwayDrive drive = new HighwayDrive();
         drive.setEnteredAt(LocalDateTime.of(2016, 3, 31, 23, 0));
         drive.setExitedAt(LocalDateTime.of(2016, 4, 1, 6, 30));
