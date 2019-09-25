@@ -25,6 +25,7 @@ public class DiscountServiceImpl implements DiscountService {
 
         // 微妙……
         ArrayList<Integer> waribikiArray = new ArrayList<Integer>();
+        waribikiArray.add(0);
 
         // 平日朝夕
         if (!isEnteredDateHoriday && !isExitedDateHoriday && (canAsawari || canYuwari)) {
@@ -42,7 +43,10 @@ public class DiscountServiceImpl implements DiscountService {
             }
         }
 
-        waribikiArray.add(0);
+        // 深夜
+        if (canShinyawari) {
+            waribikiArray.add(30);
+        }
 
         return Collections.max(waribikiArray);
     }
